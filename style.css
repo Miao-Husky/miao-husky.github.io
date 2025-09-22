@@ -228,4 +228,19 @@ body {
       display: none;
     }
   }
+
+  @media (max-width: 600px) {
+    .about-content {
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center;
+    }
+    .about-image {
+      order: 0;
+      margin-bottom: 16px;
+    }
+    .about-text {
+      order: 1;
+    }
+  }
   

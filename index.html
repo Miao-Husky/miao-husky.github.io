@@ -19,9 +19,10 @@
   <nav class="sticky-nav">
     <div class="container nav-container">
       <a href="#" class="logo">ZM</a>
-      <ul class="nav-links">
-        <li><a href="#education">Education</a></li>
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">☰</button>
+      <ul class="nav-links" id="site-nav">
         <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -146,5 +147,23 @@
       });
     });
   </script>
+<script>
+// Mobile nav toggle
+(function() {
+  try {
+    var toggle = document.querySelector('.menu-toggle');
+    var navLinks = document.querySelector('#site-nav');
+    if (toggle && navLinks) {
+      toggle.addEventListener('click', function() {
+        var open = navLinks.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+    document.querySelectorAll('section[id]').forEach(function(s) {
+      s.style.scrollMarginTop = '72px';
+    });
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>
